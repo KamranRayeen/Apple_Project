@@ -296,6 +296,7 @@ order by 3 desc) as t1
 
 17. Analyze the year-by-year growth ratio for each store.
 
+```sql
 with Yearly_sale
 as
 (select 
@@ -340,6 +341,7 @@ year <> extract (year from current_date)
 
 18. Calculate the correlation between product price and warranty claims for products sold in the last five years, segmented by price range.
 
+```sql
 select
 	case
 	when p.price < 500 then 'Less Expensive'
@@ -363,6 +365,7 @@ group by 1
 
 19. Identify the store with the highest percentage of "Paid Repaired" claims relative to total claims filed.
 
+```sql
 with Paid_repaired
 as
 (
@@ -408,6 +411,7 @@ order by 4 desc
 
 20. Write a query to calculate the monthly running total of sales for each store over the past four years and compare trends during this period.
 
+```sql
 with Monthly_sale
 as
 (select
@@ -427,6 +431,7 @@ Months,
 total_revenue,
 sum (total_revenue) over (partition by store_id order by years, months) as running_total
 from Monthly_sale
+```
 
 ### Bonus Question
 
